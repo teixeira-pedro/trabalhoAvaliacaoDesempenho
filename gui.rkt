@@ -35,6 +35,9 @@ Taxa de chegada de clientes por unidade de tempo
 
 
 
+
+
+
 #|
 Com esse botão, vamos simular o código acima com um e dois executores
 e aparecerá outra janela informando o resultado parcial e total
@@ -42,7 +45,16 @@ e aparecerá outra janela informando o resultado parcial e total
 Falta o callback
 |#
 
-(define submit-to-simulation (new button% [parent janela] [label "botao"]))
+
+#|
+Esse callback deve esconder a janela principal e exibir a janela de simulação
+|#
+(define (call-simulation-window button event)
+  (send button set-label (if (equal? (send button get-label) "botao")
+                             "clicked"
+                             "botao")))
+
+(define submit-to-simulation (new button% [parent janela] [label "botao"] [callback call-simulation-window]))
 
 
 
