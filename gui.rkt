@@ -1,25 +1,65 @@
 #lang racket/gui
 
-; Make a frame by instantiating the frame% class
+
+#|
+Janela
+|#
 (define janela (new frame% [label "Avaliação de desempenho"] [width 640] [height 320]))
 
 
+#|
+Aonde o codigo do nodejs ficará
 
+Devemos carregar códigos de exemplo 
+|#
 
 (define codigo (new editor-canvas% [label "Codigo"] [parent janela] [line-count 10] [min-width 200] [min-height 100]
-                    [vert-margin 15] [ horiz-margin 15]))
-(define texto (new text%))
-(send texto insert "codigo")
-(send codigo set-editor texto)
+                    [vert-margin 15] [ horiz-margin 15] [editor (new text%)]))
 
+
+
+#|
+Numero de clientes no total. Quando chegar nesse numero, não chegam mais clientes
+|#
 
 (define label1 (new message% [parent janela] [label "numero de clientes"]))
 (define numero-clientes (new text-field% [parent janela] [label "numero de clientes"] ))
+
+
+#|
+Taxa de chegada de clientes por unidade de tempo
+|#
 
 (define label2 (new message% [parent janela] [label "taxa de clientes"]))
 (define taxa-clientes (new text-field% [parent janela] [label "taxa de clientes"]))
 
 
 
-; Show the frame by calling its show method
+#|
+Com esse botão, vamos simular o código acima com um e dois executores
+e aparecerá outra janela informando o resultado parcial e total
+
+Falta o callback
+|#
+
+(define submit-to-simulation (new button% [parent janela] [label "botao"]))
+
+
+
+#|
+Mandamos a janela aparecer
+|#
 (send janela show #t)
+
+
+
+
+
+
+
+
+#|
+TODO : Outra janela que será chamada quando clicarmos no botão submit-to-simulation
+
+
+|#
