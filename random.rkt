@@ -1,14 +1,16 @@
 #lang racket
+
+(require memoize)
+
 (define seed 0)
 (define (set-seed x)
   (set! seed x))
 
 
-(define factorial 
-  (lambda (n)
+(define/memo (factorial n)
     (if (= n 0) 
         1
-        (* n (factorial (- n 1))))))
+        (* n (factorial (- n 1)))))
 
 
 (define (uniform [a 3] [b 5] [x_0 seed] [c 65535])
@@ -32,7 +34,7 @@
   (define prod (* _1_lbd lg))
   (define x (- 0 prod))
   (set! seed x)
-  x)
+  seed)
 
 
 (define (poisson k [lbd 7] [l 0] [h 1])
@@ -41,8 +43,11 @@
   (define _lbd (- 0 lbd));-lbd
   (define exp__lbd (expt (exp 1) _lbd));e^(-lbd)
   (define resp (* exp__lbd (/ lbd_x x_fact)))
-  (set! seed resp))
+  (set! seed resp)
+  seed)
 
-(uniform 3 11 4 2)
-(exponencial 0.4 3)
-(poisson 5 3 0 1)
+(module+ test
+  (require rackunit)
+  (check-equal? (uniform 3 11 4 2) (/ 3 11))
+  (check-equal? (exponencial 0.4 3) 0.30543024395805163)
+  (check-equal? (poisson 5 3 0 1) 0.1008188134449245))
