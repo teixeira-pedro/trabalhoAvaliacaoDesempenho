@@ -40,6 +40,9 @@ Taxa de chegada de clientes por unidade de tempo
 (define label4 (new message% [parent janela] [label "maximo numero de rodadas"]))
 (define rodadas (new text-field% [parent janela] [label "rodadas"]))
 
+(define labelTamFila (new message% [parent janela] [label "tamanho da fila"]))
+(define tamanho-fila (new text-field% [parent janela] [label "tamanho da fila"]))
+
 
 
 
