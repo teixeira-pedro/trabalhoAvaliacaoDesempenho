@@ -28,8 +28,8 @@
   ;(/ x_i b)
   ;setando direto na seed, e retornando
 
-(define (exponencial u [lbd 3] [l 0] [h 1])
-  (define lg (log u))
+(define (exponencial [lbd 3] )
+  (define lg (log seed))
   (define _1_lbd (/ 1 lbd))
   (define prod (* _1_lbd lg))
   (define x (- 0 prod))
