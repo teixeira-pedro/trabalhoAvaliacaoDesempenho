@@ -60,6 +60,20 @@
    )
 )
 
+(define (roda-sistema t k)
+  (while (<= t (* 60 60 1000))
+    (let entrada (evento (+ t (poisson k)) #t #t) )
+    (if (not (vazia_eventos <fila de eventos principal>)) ;;;;;;;;;;;;;;;SUBSTITUIR
+      (for ([i (in-list <fila de eventos principal>)])
+        (if (= t i)
+          (enfilera (car lista_filas))
+        )
+      )
+    )
+    
+  )
+)  
+
 
 (define F1
   (fila '() '() '())
@@ -70,3 +84,4 @@
   )
 
 (define lista_filas '(F1 F2))
+
