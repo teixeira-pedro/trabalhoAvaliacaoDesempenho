@@ -1,6 +1,12 @@
 #lang racket
 
 (struct fila (ff atend eventos) #:mutable )
+
+(struct evento (tmp IO qual_fila) #:mutable )
+;exemplo de evento (define e (evento 90 #t #f) )
+;IO -> BOOLEAN  entrada true, cc, false
+;qual_fila -> BOOLEAN primeira TRUE, cc false
+
 ;(append '(1 2) '(3 4))
 ;(define kakaka (remove 2 kakaka))
 ; (fila-ff F) === F->ff
