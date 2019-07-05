@@ -4,9 +4,9 @@
 ;(append '(1 2) '(3 4))
 ;(define kakaka (remove 2 kakaka))
 ; (fila-ff F) === F->ff
-(define F
-  (fila '() '() '())
-  )
+;(define F
+;  (fila '() '() '())
+;  )
 
 (define (vazia_atend F)
   (equal? '() (fila-atend F))
@@ -54,3 +54,13 @@
    )
 )
 
+
+(define F1
+  (fila '() '() '())
+  )
+
+(define F2
+  (fila '() '() '())
+  )
+
+(define lista_filas '(F1 F2))
